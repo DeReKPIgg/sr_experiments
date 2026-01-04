@@ -5,13 +5,20 @@ FROM python:3.12-slim
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     cmake \
+    libgl1 \
+    libglib2.0-0 \
+    libgtk2.0-dev pkg-config \
+    libxcb-cursor0 \
     build-essential \
     git && \ 
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install --no-cache-dir \
     numpy \
-    scipy 
+    scipy \
+    opencv-python \
+    opencv-python-headless \
+    opencv-contrib-python
 
 WORKDIR /root
 
