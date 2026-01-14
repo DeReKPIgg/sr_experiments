@@ -67,5 +67,13 @@ def play_manual_replay_grid(directories, delay=50):
 
 if __name__ == "__main__":
 
-    dirs = ['../dataset/MUVOD/breakfast/v0', '../dataset/MUVOD/breakfast/v10']
+    #dirs = ['../dataset/MUVOD/breakfast/v0', '../dataset/MUVOD/breakfast/v10']
+    #dirs = ['../dataset/MUVOD/Fencing/v0', '../dataset/MUVOD/Fencing/v9']
+    #dirs = ['../dataset/MUVOD/Barn/v0', '../dataset/MUVOD/Barn/v5']
+    #dirs = ['../dataset/MUVOD/MATF/S1_CAM_3_P3', '../dataset/MUVOD/MATF/S1_CAM_6_P3']
+    #dirs = ['../dataset/MUVOD/Painter/v0', '../dataset/MUVOD/Painter/v5']
+    #dirs = ['../dataset/MUVOD/PoznanStreet/v0', '../dataset/MUVOD/PoznanStreet/v8']
+
+    dirs = ['../dataset/MUVOD/AlexaMeadeExhibit/camera_0001', '../dataset/MUVOD/AlexaMeadeExhibit/camera_0010']
+
     play_manual_replay_grid(dirs)
