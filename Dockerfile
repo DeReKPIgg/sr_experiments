@@ -10,7 +10,17 @@ RUN apt-get update && \
     libgtk2.0-dev pkg-config \
     libxcb-cursor0 \
     build-essential \
-    git && \ 
+    git 
+    
+RUN apt-get install -y --no-install-recommends \ 
+    openssh-server && \ 
+    useradd -m -s /bin/bash "derekct" && \
+    echo "derekct:$ssh_pwd" >> ~/passwdfile && \
+    chpasswd -c SHA512 < ~/passwdfile && \
+    rm ~/passwdfile && \
+    sed -i "s/#Port.*/Port 22/" /etc/ssh/sshd_config && \
+    sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config && \
+    sed -i "s/#PasswordAuthentication.*/PasswordAuthentication yes/" /etc/ssh/sshd_config && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install --no-cache-dir \
@@ -33,4 +43,19 @@ EXPOSE 8501
 
 # 5. Set the default command or entrypoint
 # A common practice is to leave it open for user-defined commands, but you can set a default shell.
-CMD ["/bin/bash"]
+EXPOSE 22
+
+ENTRYPOINT service ssh restart && bash
+
+
+# passwd derekct
+# ssh derekct@localhost -p 1005
+# ssh root@localhost -p 1005
+
+# sudo docker run -id \
+#     -p 726:22 --gpus all \
+#     --name sr_260115 \
+#     -v /home/derekpigg:/root \
+#     -e DISPLAY=$DISPLAY \
+#     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+#     sr_image tail -f /dev/null
