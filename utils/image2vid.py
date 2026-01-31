@@ -67,6 +67,9 @@ def play_manual_replay_grid(directories, delay=50):
 
 if __name__ == "__main__":
 
+    '''
+        MUVOD
+    '''
     #dirs = ['../dataset/MUVOD/breakfast/v0', '../dataset/MUVOD/breakfast/v10']
     #dirs = ['../dataset/MUVOD/Fencing/v0', '../dataset/MUVOD/Fencing/v9']
     #dirs = ['../dataset/MUVOD/Barn/v0', '../dataset/MUVOD/Barn/v5']
@@ -74,6 +77,11 @@ if __name__ == "__main__":
     #dirs = ['../dataset/MUVOD/Painter/v0', '../dataset/MUVOD/Painter/v5']
     #dirs = ['../dataset/MUVOD/PoznanStreet/v0', '../dataset/MUVOD/PoznanStreet/v8']
 
-    dirs = ['../dataset/MUVOD/AlexaMeadeExhibit/camera_0001', '../dataset/MUVOD/AlexaMeadeExhibit/camera_0010']
+    #dirs = ['../dataset/MUVOD/AlexaMeadeExhibit/camera_0001', '../dataset/MUVOD/AlexaMeadeExhibit/camera_0010']
+
+    '''
+        BVI-CR
+    '''
+    dirs = ['../../dataset/BVI-CR/session1/output-raw-images/gao-dribble/000138201312/colour_images', '../dataset/BVI-CR/session1/output-raw-images/gao-dribble/000404613112/colour_images']
 
     play_manual_replay_grid(dirs)

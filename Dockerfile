@@ -42,20 +42,30 @@ EXPOSE 6006
 EXPOSE 8501
 
 # 5. Set the default command or entrypoint
+EXPOSE 2222
 # A common practice is to leave it open for user-defined commands, but you can set a default shell.
 EXPOSE 22
 
 ENTRYPOINT service ssh restart && bash
 
 
-# passwd derekct
-# ssh derekct@localhost -p 1005
-# ssh root@localhost -p 1005
+
 
 # sudo docker run -id \
-#     -p 726:22 --gpus all \
+#     --gpus all \
 #     --name sr_260115 \
 #     -v /home/derekpigg:/root \
 #     -e DISPLAY=$DISPLAY \
 #     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+#     -v ~/.Xauthority:/root/.Xauthority:rw \
+#     -e XAUTHORITY=/tmp/.Xauthority \
 #     sr_image tail -f /dev/null
+
+
+# passwd root
+# sed -i 's/#Port 22/Port 726/' /etc/ssh/sshd_config
+# sed -i 's/Port 22/Port 726/' /etc/ssh/sshd_config
+
+# # 3. Start the SSH service
+# service ssh restart
+# ssh root@localhost -p 726
