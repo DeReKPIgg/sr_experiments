@@ -16,7 +16,7 @@ M_mode = 1  # 0: local machine, 1: MIC machine
 ==============================================
 '''
 
-DATASET_ROOT_PATH = '/home/derekpigg/dataset' if M_mode else '../dataset'
+DATASET_ROOT_PATH = '/home/derekpigg/dataset' if M_mode else '../../dataset'
 
 bvi_cr_dataset_path = os.path.join(DATASET_ROOT_PATH, 'BVI-CR')
 
